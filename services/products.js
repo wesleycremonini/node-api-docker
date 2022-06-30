@@ -1,20 +1,18 @@
+const repository = require('../repositories/products')
 const Product = require('../models/product') //model
 const ProductAttributes = Object.keys(Product.getAttributes()) // parametros existentes no model
-const repository = require('../repositories/products')
+const { Op } = require('sequelize') // operator
 
+async function getAll(query) {
+  for (const field in query) {
+    if (!ProductAttributes.includes(field)) {
+			delete query[field]
+		} else {
+      query[field] = { [Op.regexp]: query[field] }
+    }
+	}
 
-function getAll(req) {
-  if(req.query.search) {
-    return repository.getAllSearch(req)
-  }
-
-	Object.keys(req.query).forEach((item) => {
-		if (!ProductAttributes.includes(item)) {
-			delete req.query[item]
-		}
-	})
-
-  return repository.getAll(req)
+  return await repository.getAll(query)
 }
 
 module.exports = { getAll }
