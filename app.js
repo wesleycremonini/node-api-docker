@@ -21,7 +21,6 @@ app.get('/', (req, res) => {
 app.use('/api/v1/products', productsRouter)
 
 
-
 app.use(notFound)
 app.use(error)
 
