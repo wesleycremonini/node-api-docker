@@ -6,8 +6,12 @@ const { Op } = require('sequelize') // operator
 async function getAll(data) {
 	const query = {}
 
+	if (data.select) {
+		query.attributes = data.select.split(',')
+	}
+
 	if (data.sort) {
-    query.order = []
+		query.order = []
 		const sort = data.sort.split(',')
 		sort.forEach((field) => {
 			query.order.push([
@@ -26,7 +30,7 @@ async function getAll(data) {
 		}
 	}
 
-	query.where = data
+	query.where = await data
 
 	return await repository.getAll(query)
 }
