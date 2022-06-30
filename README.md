@@ -70,6 +70,14 @@ Por exemplo 'ode' encontra wooden.
 ```bash
 /api/v1/products?name=ode&featured=0
 ```
+Para filtrar price e rating use um intervalo de valores separado por vírgula
+```bash
+/api/v1/products?price=0,300&rating=3,5
+```
+Para filtrar data use createdAt=AAAA-MM-DD nesse formato
+```bash
+/api/v1/products?createdAt=2022-06-25&rating=3,5
+```
 Para ordenar use sort=campo, se houver hífen é decrescente. Use vírgula para ordenar por mais de um campo.
 ```bash
 /api/v1/products?company=ikea&sort=name
