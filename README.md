@@ -56,6 +56,7 @@ nodemon app.js --ip 0.0.0.0
 
 Pronto, sua api está rodando localmente em localhost:5000
 
+Usar create.js para adicionar produtos ao banco
 # API DOCS
 
 wip
