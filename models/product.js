@@ -25,7 +25,7 @@ Product.init(
 			allowNull: false,
 		},
 		price: {
-			type: DataTypes.INTEGER(10).UNSIGNED,
+			type: DataTypes.FLOAT.UNSIGNED,
 			allowNull: false,
 		},
 		featured: {
@@ -33,7 +33,7 @@ Product.init(
 			defaultValue: false,
 		},
 		rating: {
-			type: DataTypes.INTEGER(2).UNSIGNED,
+			type: DataTypes.FLOAT.UNSIGNED,
 			defaultValue: 4.5,
 		},
 		createdAt: {
