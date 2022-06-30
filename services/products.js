@@ -6,10 +6,13 @@ const { Op } = require('sequelize') // operator
 async function getAll(data) {
 	const query = {}
 
-	if (data.select) {
-		query.attributes = data.select.split(',')
+	if (data.limit) {
+	  query.limit = Number(data.limit)
+    if (data.page && data.page > 1) {
+      query.offset = query.limit * (data.page - 1)
+    }
 	}
-
+	if (data.select) query.attributes = data.select.split(',')
 	if (data.sort) {
 		query.order = []
 		const sort = data.sort.split(',')
@@ -19,7 +22,6 @@ async function getAll(data) {
 				field.startsWith('-') ? 'DESC' : 'ASC',
 			])
 		})
-		delete data.sort
 	}
 
 	for (const field in data) {

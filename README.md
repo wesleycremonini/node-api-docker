@@ -80,3 +80,7 @@ Para filtrar os campos use select=campo, para selecionar múltiplos use vírgula
 ```bash
 /api/v1/products?sort=name,price&select=name,company
 ```
+Para limitar e filtrar por página use limit e page
+```bash
+/api/v1/products?limit=3&page=3
+```
