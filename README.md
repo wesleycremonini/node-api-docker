@@ -20,6 +20,16 @@ Criar os containers app (node) e db (mysql).
 docker compose up
 ```
 
+Para parar e rodar os containers depois de montados
+
+```bash
+parar
+docker kill $(docker ps -q)
+
+rodar
+docker start $(docker ps -a -q)
+```
+
 Criar arquivo .env
 
 ```bash
