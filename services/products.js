@@ -60,7 +60,7 @@ async function getAll(data) {
 
 		return await repository.getAll(query)
 	} catch (err) {
-    throw new error.BadRequestError('Há algo de errado com a sua requisição. Documentação: localhost/docs')
+    throw new error.BadRequest('Há algo de errado com a sua requisição. Documentação: localhost/docs')
   }
 }
 
